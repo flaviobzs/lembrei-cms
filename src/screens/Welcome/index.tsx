@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import {} from "./styles";
+import { Container } from "./styles";
 
 import Button from "../../components/Button";
 import Screen from "../../components/Screen";
@@ -15,21 +15,22 @@ const Welcome: React.FC = () => {
   return (
     <Screen>
       <Logo />
-
-      <Button
-        onPress={() => {
-          navigation.navigate("SignIn");
-        }}
-      >
-        Entrar
-      </Button>
-      <Button
-        onPress={() => {
-          navigation.navigate("SignUp");
-        }}
-      >
-        Cadastrar
-      </Button>
+      <Container>
+        <Button
+          onPress={() => {
+            navigation.navigate("SignIn");
+          }}
+        >
+          Entrar
+        </Button>
+        <Button
+          onPress={() => {
+            navigation.navigate("SignUp");
+          }}
+        >
+          Cadastrar
+        </Button>
+      </Container>
     </Screen>
   );
 };

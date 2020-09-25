@@ -4,17 +4,23 @@ import {
   Container,
   DetailsContainer,
   ImageContainer,
-  SubTitle,
-  Title,
+  SubTitleContainer,
+  TitleContainer,
 } from "./styles";
 
-const Card: React.FC = ({ title, subTitle, image }) => {
+interface CardProps {
+  title: string;
+  subTitle: string;
+  image?: any;
+}
+
+const Card: React.FC<CardProps> = ({ title, subTitle, image }) => {
   return (
     <Container>
       <ImageContainer source={image}></ImageContainer>
       <DetailsContainer>
-        <Title>{title}</Title>
-        <SubTitle>{subTitle}</SubTitle>
+        <TitleContainer>{title}</TitleContainer>
+        <SubTitleContainer>{subTitle}</SubTitleContainer>
       </DetailsContainer>
     </Container>
   );

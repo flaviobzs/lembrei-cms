@@ -1,28 +1,27 @@
 import styled from "styled-components/native";
 
-import Text from "../Text";
-
 export const Container = styled.View`
-  border-radius: 15;
-  /* background-color: colors.white, */
+  border-radius: 15px;
   background-color: #fff;
-  margin-bottom: 20;
+  margin-bottom: 20px;
   overflow: hidden;
 `;
 
 export const DetailsContainer = styled.View`
-  padding: 20;
+  padding: 10px 20px;
 `;
 
 export const ImageContainer = styled.Image`
   width: 100%;
-  height: 200;
+  height: 140px;
 `;
-export const SubTitle = styled(Text)`
+
+export const TitleContainer = styled.Text`
+  margin-bottom: 7px;
+`;
+
+export const SubTitleContainer = styled.Text`
   /* color: colors.secondary; */
   color: #111;
   font-weight: bold;
-`;
-export const Title = styled(Text)`
-  margin-bottom: 7;
 `;

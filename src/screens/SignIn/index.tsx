@@ -32,9 +32,9 @@ const SignIn: React.FC = () => {
   return (
     <Screen>
       <Logo />
-      <View>
+      {/* <View>
         <Title>Login</Title>
-      </View>
+      </View> */}
       <Controller
         control={control}
         name="email"

@@ -10,14 +10,30 @@ const Auth = createStackNavigator();
 
 const AuthRoutes: React.FC = () => (
   <Auth.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}
+  // screenOptions={{
+  //   headerShown: false,
+  // }}
   >
-    <Auth.Screen name="Welcome" component={Welcome} />
-    <Auth.Screen name="SignIn" component={SignIn} />
-    <Auth.Screen name="ForgotPassword" component={ForgotPassword} />
-    <Auth.Screen name="SignUp" component={SignUp} />
+    <Auth.Screen
+      name="Welcome"
+      component={Welcome}
+      options={{ headerShown: false }}
+    />
+    <Auth.Screen
+      name="SignIn"
+      component={SignIn}
+      options={{ title: "Entrar" }}
+    />
+    <Auth.Screen
+      name="SignUp"
+      component={SignUp}
+      options={{ title: "Cadastrar" }}
+    />
+    <Auth.Screen
+      name="ForgotPassword"
+      component={ForgotPassword}
+      options={{ title: "Esqueci minha senha" }}
+    />
   </Auth.Navigator>
 );
 

@@ -1,18 +1,25 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-// import Dashboard from '../screens/Dashboard';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const App = createStackNavigator();
+import Dashboard from "../screens/Dashboard";
+
+// const App = createStackNavigator();
+const App = createBottomTabNavigator();
 
 const AppRoutes: React.FC = () => (
-  <App.Navigator
-    screenOptions={{
-      headerShown: false,
-      // cardStyle: { backgroundColor: '#ffffff' },
-    }}
-  >
-    {/* <App.Screen name="Dashboard" component={Dashboard} /> */}
+  <App.Navigator>
+    <App.Screen
+      name="Dashboard"
+      component={Dashboard}
+      // options={{
+      //   tabBarIcon: ({ color, size }) => (
+      //     <MaterialCommunityIcons name="home" color={color} size={size} />
+      //   ),
+      // }}
+    />
   </App.Navigator>
 );
 

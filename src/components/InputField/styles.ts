@@ -19,6 +19,7 @@ export const Container = styled.View<ContainerProps>`
   padding: 0px 10px;
   border-width: 2px;
   border-color: #232129;
+  padding: 8px;
 
   ${(props) =>
     props.isErrored &&
@@ -37,9 +38,7 @@ export const Icon = styled(MaterialCommunityIcons)<IconProps>`
   /* margin-right: 16px;
   color: ${({ theme }) => theme.colors.grayHard};
 
-  ${(
-    props
-  ) =>
+  ${(props) =>
     (props.isFocused || props.isFilled) &&
     css`
       color: ${props.theme.colors.orange};
