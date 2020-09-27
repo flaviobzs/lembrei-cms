@@ -5,6 +5,9 @@ export const Container = styled.View`
   background-color: #fff;
   margin-bottom: 20px;
   overflow: hidden;
+  flex-direction: row;
+  border-width: 1px;
+  border-color: #232129;
 `;
 
 export const DetailsContainer = styled.View`
@@ -12,8 +15,9 @@ export const DetailsContainer = styled.View`
 `;
 
 export const ImageContainer = styled.Image`
-  width: 100%;
-  height: 140px;
+  width: 40%;
+  height: 100px;
+  border-right-width: 1px;
 `;
 
 export const TitleContainer = styled.Text`
@@ -21,7 +25,6 @@ export const TitleContainer = styled.Text`
 `;
 
 export const SubTitleContainer = styled.Text`
-  /* color: colors.secondary; */
   color: #111;
   font-weight: bold;
 `;

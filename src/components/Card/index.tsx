@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 import {
   Container,
@@ -12,17 +16,20 @@ interface CardProps {
   title: string;
   subTitle: string;
   image?: any;
+  onPress?: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, subTitle, image }) => {
+const Card: React.FC<CardProps> = ({ title, subTitle, image, onPress }) => {
   return (
-    <Container>
-      <ImageContainer source={image}></ImageContainer>
-      <DetailsContainer>
-        <TitleContainer>{title}</TitleContainer>
-        <SubTitleContainer>{subTitle}</SubTitleContainer>
-      </DetailsContainer>
-    </Container>
+    <TouchableOpacity onPress={onPress}>
+      <Container>
+        <ImageContainer source={image}></ImageContainer>
+        <DetailsContainer>
+          <TitleContainer>{title}</TitleContainer>
+          <SubTitleContainer>{subTitle}</SubTitleContainer>
+        </DetailsContainer>
+      </Container>
+    </TouchableOpacity>
   );
 };
 
