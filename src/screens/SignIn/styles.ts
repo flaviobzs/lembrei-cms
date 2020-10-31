@@ -5,8 +5,10 @@ export const Container = styled.SafeAreaView`
   flex: 1;
 `;
 
-export const Wrapper = styled.View`
-  flex: 1;
+export const Content = styled.View`
+  /* flex: 1; */
+  width: 100%;
+  align-items: center;
 `;
 
 export const Image = styled.Image`

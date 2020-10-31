@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import Screen from "../../components/Screen";
+import { Modal, TouchableOpacity } from "react-native";
+
+import Wrapper from "../../components/Wrapper";
+
 import {
   ProductDetailsContainer,
+  ProductImageContainer,
   ProductImage,
   ProductPrice,
   ProductTitle,
+  ModalContainer,
+  Close,
+  CloseContainer,
+  ButtonsContainer,
+  Delete,
+  Image,
 } from "./styles";
 
 const product = {
@@ -16,14 +27,53 @@ const product = {
 };
 
 const DetailsProduct: React.FC = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <Screen>
-      <ProductImage source={product.image}></ProductImage>
-      <ProductDetailsContainer>
-        <ProductTitle>{product.title}</ProductTitle>
-        <ProductPrice>{product.price}</ProductPrice>
-      </ProductDetailsContainer>
-    </Screen>
+    <>
+      <Wrapper>
+        <ProductImageContainer
+          onPress={() => {
+            setModalVisible(true);
+            console.log(modalVisible);
+          }}
+        >
+          <ProductImage source={product.image}></ProductImage>
+        </ProductImageContainer>
+        <ProductDetailsContainer>
+          <ProductTitle>{product.title}</ProductTitle>
+          <ProductPrice>{product.price}</ProductPrice>
+        </ProductDetailsContainer>
+      </Wrapper>
+      <Modal visible={modalVisible} animationType="slide">
+        <ModalContainer>
+          <ButtonsContainer>
+            <TouchableOpacity
+              onPress={() => {
+                setModalVisible(false);
+                console.log(modalVisible);
+              }}
+            >
+              <Close>
+                <MaterialCommunityIcons name="close" color="white" size={35} />
+              </Close>
+            </TouchableOpacity>
+
+            {/* <Delete>
+              <MaterialCommunityIcons
+                name="trash-can-outline"
+                color="white"
+                size={35}
+              />
+            </Delete> */}
+          </ButtonsContainer>
+          <Image
+            resizeMode="contain"
+            source={require("../../assets/jacket.jpg")}
+          />
+        </ModalContainer>
+      </Modal>
+    </>
   );
 };
 

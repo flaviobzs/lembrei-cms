@@ -8,7 +8,7 @@ export const Container = styled(RectButton)`
   align-items: center;
   padding: 15px;
   width: 100%;
-  margin: 15px 0;
+  margin: 8px 0px;
   height: 55px;
 `;
 

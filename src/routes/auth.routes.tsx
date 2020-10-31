@@ -9,10 +9,11 @@ import ForgotPassword from "../screens/ForgotPassword";
 const Auth = createStackNavigator();
 
 const AuthRoutes: React.FC = () => (
+
   <Auth.Navigator
-  // screenOptions={{
-  //   headerShown: false,
-  // }}
+    screenOptions={{
+      headerTransparent: true,      
+    }}
   >
     <Auth.Screen
       name="Welcome"
@@ -22,17 +23,17 @@ const AuthRoutes: React.FC = () => (
     <Auth.Screen
       name="SignIn"
       component={SignIn}
-      options={{ title: "Entrar" }}
+      options={{ title: "" }}
     />
     <Auth.Screen
       name="SignUp"
       component={SignUp}
-      options={{ title: "Cadastrar" }}
+      options={{ title: "" }}
     />
     <Auth.Screen
       name="ForgotPassword"
       component={ForgotPassword}
-      options={{ title: "Esqueci minha senha" }}
+      options={{ title: "" }}
     />
   </Auth.Navigator>
 );

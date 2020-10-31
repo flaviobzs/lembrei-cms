@@ -1,14 +1,14 @@
 import React, { useEffect, useCallback } from "react";
-import { View } from "react-native";
+import {View, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
-import Screen from "../../components/Screen";
+import Wrapper from "../../components/Wrapper";
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
 import Text from "../../components/Text";
 import Logo from "../../components/Logo";
 
-import {} from "./styles";
+import {Content} from "./styles";
 
 interface IFormInputs {
   email: string;
@@ -29,8 +29,19 @@ const SignUp: React.FC = () => {
   }, []);
 
   return (
-    <Screen>
-      <Logo></Logo>
+    <KeyboardAvoidingView 
+    style={{ flex: 1 }}
+    behavior={Platform.OS === "ios" ? "padding" : undefined}
+    enabled
+    >
+      <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{ flex: 1 }}
+        >
+    <Wrapper>
+     
+      <Logo/>
+      <Content>
       <View>
         <Text>Cadastro</Text>
       </View>
@@ -101,7 +112,10 @@ const SignUp: React.FC = () => {
       />
 
       <Button onPress={handleSubmit(onSubmit)}>Cadastrar </Button>
-    </Screen>
+      </Content>
+    </Wrapper>
+    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

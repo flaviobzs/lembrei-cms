@@ -2,10 +2,13 @@ import styled from "styled-components/native";
 
 export const SelectContainer = styled.View`
   flex-direction: row;
-  border-radius: 25px;
+  border-radius: 15px;
   padding: 15px;
-  margin: 10px 0px;
-  background-color: blue;
+  margin-bottom: 8px;
+  background-color: #fff;
+  width: 100%;
+  border-width: 2px;
+  border-color: #232129;
 `;
 
 export const OptionText = styled.Text`
@@ -20,8 +23,8 @@ export const PlaceholderText = styled.Text`
 export const ModalContainer = styled.View`
   /* flex: 1; */
   background-color: red;
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  /* height: 100%;  */
   /* flex-direction: column; */
 `;
 

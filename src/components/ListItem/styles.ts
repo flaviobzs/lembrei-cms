@@ -4,10 +4,10 @@ export const Container = styled.View`
   flex-direction: row;
 `;
 export const ImageList = styled.Image`
-  width: 70;
-  height: 70;
-  border-radius: 35;
-  margin-right: 10;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  margin-right: 10px;
 `;
 
 export const ContentSubTitle = styled.Text`

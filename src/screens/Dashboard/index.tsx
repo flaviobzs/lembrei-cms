@@ -10,7 +10,7 @@ import {
   CategoryName,
 } from "./styles";
 
-import Screen from "../../components/Screen";
+import Wrapper from "../../components/Wrapper";
 import Card from "../../components/Card";
 
 const listings = [
@@ -83,7 +83,7 @@ const Dashboard: React.FC = () => {
   // const navigation = useNavigation();
 
   return (
-    <Screen>
+    <Wrapper>
       <CategoryListContainer>
         <CategoryList
           horizontal
@@ -116,7 +116,7 @@ const Dashboard: React.FC = () => {
           />
         )}
       />
-    </Screen>
+    </Wrapper>
   );
 };
 

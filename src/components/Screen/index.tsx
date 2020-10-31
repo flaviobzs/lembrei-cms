@@ -3,16 +3,15 @@ import Constants from "expo-constants";
 
 import { Container, Wrapper } from "./styles";
 
-// import backgroud from '../../assets/background.jpg'
-
-const Login: React.FC = ({ children }) => {
-  const heightView = Constants.statusBarHeight;
+const Screen: React.FC = ({ children }) => {
+  // const heightView = Constants.statusBarHeight;
 
   return (
-    <Container heightStatusBar={heightView}>
-      <Wrapper source={require("../../assets/back.jpg")}>{children}</Wrapper>
+    // <Container heightStatusBar={heightView}>
+    <Container>
+      <Wrapper>{children}</Wrapper>
     </Container>
   );
 };
 
-export default Login;
+export default Screen;

@@ -3,12 +3,13 @@ import { View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigation } from "@react-navigation/native";
 
-import Screen from "../../components/Screen";
+import AuthWrapper from "../../components/AuthWrapper";
+import Wrapper from "../../components/Wrapper";
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 
-import { Title, ForgotPassword, ForgotPasswordText } from "./styles";
+import { Title, Content, ForgotPassword, ForgotPasswordText } from "./styles";
 
 interface IFormInputs {
   email: string;
@@ -30,11 +31,12 @@ const SignIn: React.FC = () => {
   }, []);
 
   return (
-    <Screen>
+    <Wrapper>
       <Logo />
-      {/* <View>
+      <Content>
+      <View>
         <Title>Login</Title>
-      </View> */}
+      </View>
       <Controller
         control={control}
         name="email"
@@ -90,7 +92,7 @@ const SignIn: React.FC = () => {
       />
 
       <Button onPress={handleSubmit(onSubmit)}>Entrar </Button>
-
+     
       <ForgotPassword
         onPress={() => {
           navigation.navigate("ForgotPassword");
@@ -98,7 +100,8 @@ const SignIn: React.FC = () => {
       >
         <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
       </ForgotPassword>
-    </Screen>
+      </Content>
+    </Wrapper>
   );
 };
 

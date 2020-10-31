@@ -8,16 +8,13 @@ const statusBarHeight =
 export const Container = styled.SafeAreaView`
   padding-top: ${statusBarHeight + "px"};
   flex: 1;
-  /* width: 100%; */
-
-  /* background-color: blueviolet; */
+  background-color: #f6f7fc;
 `;
 
-export const Wrapper = styled.View`
+export const Content = styled.ImageBackground`
   flex: 1;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 0px 20px;
-  background-color: blueviolet;
+  padding: 0px 20px 40px 20px;
 `;

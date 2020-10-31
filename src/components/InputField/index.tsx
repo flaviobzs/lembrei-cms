@@ -10,7 +10,7 @@ interface InputProps {
 }
 
 const InputField: React.FC<InputProps> = ({ name, error, icon, ...rest }) => {
-  console.log(name, error, rest);
+  // console.log(name, error, rest);
 
   return (
     <Container isErrored={!!error}>

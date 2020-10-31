@@ -1,21 +1,19 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import { Container } from "./styles";
+import { ButtonsContainer } from "./styles";
 
-import Button from "../../components/Button";
-import Screen from "../../components/Screen";
+import Wrapper from "../../components/Wrapper";
 import Logo from "../../components/Logo";
-
-// import logo from "../../assets/logo2.png";
+import Button from "../../components/Button";
 
 const Welcome: React.FC = () => {
   const navigation = useNavigation();
 
   return (
-    <Screen>
+    <Wrapper>
       <Logo />
-      <Container>
+      <ButtonsContainer>
         <Button
           onPress={() => {
             navigation.navigate("SignIn");
@@ -30,8 +28,8 @@ const Welcome: React.FC = () => {
         >
           Cadastrar
         </Button>
-      </Container>
-    </Screen>
+      </ButtonsContainer>
+    </Wrapper>
   );
 };
 

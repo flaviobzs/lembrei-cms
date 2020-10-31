@@ -2,12 +2,12 @@ import React, { useEffect, useCallback } from "react";
 import { View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
-import Screen from "../../components/Screen";
+import Wrapper from "../../components/Wrapper";
 import InputField from "../../components/InputField";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 
-import { Title } from "./styles";
+import { Title, Content } from "./styles";
 
 interface IFormInputs {
   email: string;
@@ -26,11 +26,12 @@ const ForgotPassword: React.FC = () => {
   }, []);
 
   return (
-    <Screen>
+    <Wrapper>
       <Logo />
-      {/* <View>
-        <Title>Esqueci minha senha</Title>
-      </View> */}
+      <Content>
+      <View>
+        <Title>Redefinir senha</Title>
+      </View>
       <Controller
         control={control}
         name="email"
@@ -60,8 +61,9 @@ const ForgotPassword: React.FC = () => {
         )}
       />
 
-      <Button onPress={handleSubmit(onSubmit)}>Redefinir </Button>
-    </Screen>
+      <Button onPress={handleSubmit(onSubmit)}>Redefinir</Button>
+      </Content>
+    </Wrapper>
   );
 };
 

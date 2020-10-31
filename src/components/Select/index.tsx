@@ -11,6 +11,8 @@ import {
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import SelectItem from "../SelectItem";
+
 import {
   SelectContainer,
   OptionText,
@@ -33,7 +35,7 @@ interface SelectProps {
   numberOfColumns?: number;
   placeholder: string;
   selectedItem?: ItenProps;
-  // onSelectItem: string;
+  onSelectItem?: any;
 }
 
 import {} from "./styles";
@@ -42,16 +44,16 @@ const Select: React.FC<SelectProps> = ({
   items,
   icon,
   numberOfColumns = 1,
-  // onSelectItem,
   placeholder,
   selectedItem,
+  onSelectItem,
   // PickerItemComponent = PickerItem,
   // width = "100%",
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <>
+    <View style={styles.tela}>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <SelectContainer>
           {icon && (
@@ -59,13 +61,15 @@ const Select: React.FC<SelectProps> = ({
               name={icon}
               size={20}
               // color={defaultStyles.colors.medium}
-              // style={styles.icon}
+              style={styles.icon}
             />
           )}
           {selectedItem ? (
-            <OptionText>{selectedItem.label}</OptionText>
+            <OptionText style={styles.textt}>{selectedItem.label}</OptionText>
           ) : (
-            <PlaceholderText>{placeholder}</PlaceholderText>
+            <PlaceholderText style={styles.textt}>
+              {placeholder}
+            </PlaceholderText>
           )}
 
           <MaterialCommunityIcons
@@ -82,6 +86,8 @@ const Select: React.FC<SelectProps> = ({
         // style={styles.container}
       >
         <ModalContainer>
+
+          
           <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
             <CloseModalContainer>
               <TextCloseModal>Fechar</TextCloseModal>
@@ -94,33 +100,56 @@ const Select: React.FC<SelectProps> = ({
             keyExtractor={(item) => item.value.toString()}
             numColumns={numberOfColumns}
             renderItem={({ item }) => (
-              <View style={styles.container}>
-                <Text> {item.label}</Text>
-              </View>
-              // <PickerItemComponent
-              //   item={item}
-              //   label={item.label}
-              //   onPress={() => {
-              //     setModalVisible(false);
-              //     onSelectItem(item);
-              //   }}
-              // />
+              // <View style={styles.container}>
+              //   <Text style={styles.tex}> {item.label}</Text>
+              // </View>
+
+              <SelectItem
+                item={item}
+                // label={item.label}
+                onPress={() => {
+                  // () => console.log(item);
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
+              />
             )}
           />
         </ModalContainer>
       </Modal>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  icon: {
+    marginRight: 10,
+  },
+  textt: {
     flex: 1,
+  },
+  tela: {
+    // flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  container: {
+    // flex: 1,
+    padding: 20,
+    // paddingVertical: "10",
+    // marginVertical: "10",
+    // height: "60",
+    backgroundColor: "green",
+  },
+  tex: {
+    // flex: 1,
     // padding: "20",
     // paddingVertical: "10",
-    marginVertical: "10",
-    height: "60",
-    // backgroundColor: "red",
+    // marginVertical: "10",
+    // height: "60",
+    color: "white",
+    fontSize: 40,
   },
   text: {
     // flex: 1,

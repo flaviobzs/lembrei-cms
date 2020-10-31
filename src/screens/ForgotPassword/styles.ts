@@ -6,3 +6,8 @@ export const Title = styled.Text`
   margin-top: 20px;
   margin-bottom: 30px;
 `;
+
+export const Content = styled.View`
+ width: 100%;
+ align-items:center;
+`;
