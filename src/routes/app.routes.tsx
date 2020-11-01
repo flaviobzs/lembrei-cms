@@ -1,29 +1,29 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import { NavigationContainer } from '@react-navigation/native';
-
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import CreateProductButton from "../components/CreateProductButton";
 
-import Dashboard from "../screens/Dashboard";
-import Profile from "../screens/Profile";
 import CreateProduct from "../screens/CreateProduct";
-import DetailsProduct from "../screens/DetailsProduct";
-import ImageProduct from "../screens/ImageProduct";
-import SelectTest from "../screens/SelectTest";
+import ProfileRoutes from './profile.routes'
+import ProductRoutes from './product.routes'
 
 // const { Navigator, Screen } = createBottomTabNavigator();
 const App = createBottomTabNavigator();
 
 const AppRoutes: React.FC = () => (
   <App.Navigator>
-    <App.Screen name="Dashboard" component={Dashboard} />
-    <App.Screen name="CreateProduct" component={CreateProduct} />
-    <App.Screen name="DetailsProduct" component={DetailsProduct} />
-    {/* <App.Screen name="ImageProduct" component={ImageProduct} /> */}
-    {/* <App.Screen name="SelectTest" component={SelectTest} /> */}
-    {/* <App.Screen
+    <App.Screen 
+      name="Dashboard" 
+      component={ProductRoutes}
+      options={{
+        title:"",
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="home" color={color} size={35} />
+        ),
+      }}
+    />
+    <App.Screen
       name="CreateProduct"
       component={CreateProduct}
       options={({ navigation }) => ({
@@ -40,8 +40,17 @@ const AppRoutes: React.FC = () => (
           />
         ),
       })}
-    /> */}
-    {/* <App.Screen name="Profile" component={Profile} /> */}
+    />
+    <App.Screen 
+      name="Profile" 
+      component={ProfileRoutes} 
+      options={{
+        title:"",
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="account" color={color} size={35} />
+        ),
+      }}
+    />
   </App.Navigator>
 );
 

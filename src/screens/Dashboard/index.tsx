@@ -1,86 +1,25 @@
-import React from "react";
-// import { useNavigation } from "@react-navigation/native";
+import React, {useState} from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import {
   List,
   CategoryListContainer,
   CategoryList,
   CategoryContainer,
-  CategoryAvatar,
   CategoryName,
 } from "./styles";
 
 import Wrapper from "../../components/Wrapper";
 import Card from "../../components/Card";
+import CardActions from "../../components/CardActions";
 
-const listings = [
-  {
-    id: 1,
-    title: "Red sale",
-    price: 100,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 2,
-    title: "Couch condition",
-    price: 1000,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 4,
-    title: "Couch condition",
-    price: 1000,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 3,
-    title: "Couch condition",
-    price: 1000,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 5,
-    title: "Couch condition",
-    price: 1000,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 6,
-    title: "Couch condition",
-    price: 1000,
-    image: require("../../assets/jacket.jpg"),
-  },
-];
-
-const categories = [
-  {
-    id: 1,
-    name: "todos",
-    price: 100,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 2,
-    name: "feminino",
-    price: 100,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 3,
-    name: "masculino",
-    price: 100,
-    image: require("../../assets/jacket.jpg"),
-  },
-  {
-    id: 4,
-    name: "infantil",
-    price: 100,
-    image: require("../../assets/jacket.jpg"),
-  },
-];
+import listings from '../../service/products'
+import categories from '../../service/categories'
 
 const Dashboard: React.FC = () => {
-  // const navigation = useNavigation();
+  const [filterCategory, setFilterCategory] = useState(1);
+
+  const navigation = useNavigation();
 
   return (
     <Wrapper>
@@ -92,13 +31,10 @@ const Dashboard: React.FC = () => {
           keyExtractor={(category) => String(category.id)}
           renderItem={({ item: category }) => (
             <CategoryContainer
-              selected={false}
-              onPress={() => {}}
-              // selected={category.id === selectedcategory}
+              selected={category.id === filterCategory ? true : false}
+              onPress={() => {setFilterCategory(category.id)}}
             >
-              {/* <CategoryAvatar source={{ uri: provider.avatar_url }} /> */}
-              {/* <CategoryName selected={category.id === selectedcategory}> */}
-              <CategoryName selected={false}>{category.name}</CategoryName>
+              <CategoryName selected={category.id === filterCategory ? true : false }>{category.name}</CategoryName>
             </CategoryContainer>
           )}
         />
@@ -112,7 +48,10 @@ const Dashboard: React.FC = () => {
             title={item.title}
             subTitle={item.price}
             image={item.image}
-            onPress={() => {}}
+            onPress={() => { 
+              navigation.navigate("EditProduct");
+            }}
+            renderRightActions={() => <CardActions/>}
           />
         )}
       />

@@ -2,22 +2,32 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   border-radius: 15px;
+  /* border-bottom-left-radius: 15px;
+  border-top-left-radius:15px; */
   background-color: #fff;
   margin-bottom: 20px;
   overflow: hidden;
   flex-direction: row;
   border-width: 1px;
-  border-color: #232129;
+  border-color: #232129;  
+  padding: 5px 15px 5px 5px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ProductContainer = styled.View`
+  flex-direction: row;
+`;
+
+export const ImageContainer = styled.Image`
+  width: 100px;
+  height: 80px;
+  border-radius: 15px;
+  margin: 6px;
 `;
 
 export const DetailsContainer = styled.View`
   padding: 10px 20px;
-`;
-
-export const ImageContainer = styled.Image`
-  width: 40%;
-  height: 100px;
-  border-right-width: 1px;
 `;
 
 export const TitleContainer = styled.Text`

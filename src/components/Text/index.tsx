@@ -1,6 +1,6 @@
 import React, { ReactChild } from "react";
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 interface TextProps {
   typografia?: number;
@@ -8,7 +8,12 @@ interface TextProps {
 }
 
 const Text: React.FC<TextProps> = ({ children, typografia }) => {
-  return <Container typografia={typografia}>{children}</Container>;
+  return (
+    <Container >
+      <Content typografia={typografia}>{children}</Content>
+    </Container>
+  )
+    
 };
 
 export default Text;

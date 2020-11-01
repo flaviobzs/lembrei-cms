@@ -1,11 +1,15 @@
 import React from "react";
 import {
-  TouchableHighlight,
   TouchableOpacity,
 } from "react-native-gesture-handler";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+
 
 import {
   Container,
+  ProductContainer,
   DetailsContainer,
   ImageContainer,
   SubTitleContainer,
@@ -17,19 +21,25 @@ interface CardProps {
   subTitle: string;
   image?: any;
   onPress?: any;
+  renderRightActions?: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, subTitle, image, onPress }) => {
+const Card: React.FC<CardProps> = ({ title, subTitle, image, onPress, renderRightActions }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <Swipeable renderRightActions={renderRightActions}>    
       <Container>
+        <ProductContainer>
         <ImageContainer source={image}></ImageContainer>
         <DetailsContainer>
           <TitleContainer>{title}</TitleContainer>
-          <SubTitleContainer>{subTitle}</SubTitleContainer>
+          <SubTitleContainer>{`R$ ${subTitle}`}</SubTitleContainer>
         </DetailsContainer>
+        </ProductContainer>
+        <TouchableOpacity onPress={onPress}>
+          <MaterialCommunityIcons name="square-edit-outline" size={27} color="black" />
+        </TouchableOpacity>
       </Container>
-    </TouchableOpacity>
+    </Swipeable>
   );
 };
 

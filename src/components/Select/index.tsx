@@ -24,6 +24,7 @@ import {
 
 interface ItenProps {
   color: string;
+  id: string;
   icon: string;
   label: string;
   value: number;
@@ -38,17 +39,13 @@ interface SelectProps {
   onSelectItem?: any;
 }
 
-import {} from "./styles";
-
 const Select: React.FC<SelectProps> = ({
   items,
   icon,
   numberOfColumns = 1,
   placeholder,
   selectedItem,
-  onSelectItem,
-  // PickerItemComponent = PickerItem,
-  // width = "100%",
+  onSelectItem, 
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -56,11 +53,16 @@ const Select: React.FC<SelectProps> = ({
     <View style={styles.tela}>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <SelectContainer>
-          {icon && (
+          {selectedItem ? (
             <MaterialCommunityIcons
-              name={icon}
+              name={selectedItem.icon}
               size={20}
-              // color={defaultStyles.colors.medium}
+              style={styles.icon}
+            />
+          ):(
+            <MaterialCommunityIcons
+              name="apps"
+              size={20}
               style={styles.icon}
             />
           )}
@@ -75,7 +77,6 @@ const Select: React.FC<SelectProps> = ({
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
-            // color={defaultStyles.colors.medium}
           />
         </SelectContainer>
       </TouchableWithoutFeedback>
@@ -97,7 +98,7 @@ const Select: React.FC<SelectProps> = ({
           <FlatList
             style={styles.list}
             data={items}
-            keyExtractor={(item) => item.value.toString()}
+            keyExtractor={(item) => item.id.toString()}
             numColumns={numberOfColumns}
             renderItem={({ item }) => (
               // <View style={styles.container}>
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
     // paddingVertical: "10",
     // marginVertical: "10",
     // height: "60",
-    backgroundColor: "green",
+    // backgroundColor: "green",
   },
   tex: {
     // flex: 1,
@@ -153,13 +154,13 @@ const styles = StyleSheet.create({
   },
   text: {
     // flex: 1,
-    backgroundColor: "red",
+    // backgroundColor: "red",
     height: "60",
     marginHorizontal: "60",
   },
   list: {
     // flex: 1,
-    backgroundColor: "blue",
+    // backgroundColor: "blue",
     // height: "60",
     // marginHorizontal: "60",
   },

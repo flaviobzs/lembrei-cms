@@ -5,7 +5,6 @@ import { FlatList } from "react-native";
 interface Category {
   id: string;
   name: string;
-  // image: string;
 }
 
 interface CategoryContainerProps {
@@ -17,7 +16,6 @@ interface CategoryNameProps {
 }
 
 export const List = styled.FlatList`
-  /* background-color: #111111; */
   width: 100%;
 `;
 
@@ -26,17 +24,15 @@ export const CategoryListContainer = styled.View`
   width: 100%;
 `;
 
-/* export const CategoryList = styled.FlatList` */
 export const CategoryList = styled(FlatList as new () => FlatList<Category>)`
   padding: 32px 24px;
 `;
 
 export const CategoryContainer = styled(RectButton)<CategoryContainerProps>`
-  background: ${(props) => (props.selected ? "#666360" : "#111111")};
+  background: ${(props) => (props.selected ? "#483D8B" : "#111111")};
   padding: 8px 12px;
   margin-right: 16px;
   border-radius: 10px;
-
   flex-direction: row;
   align-items: center;
 `;
@@ -49,7 +45,6 @@ export const CategoryAvatar = styled.Image`
 
 export const CategoryName = styled.Text<CategoryNameProps>`
   margin-left: 8px;
-  /* font-family: "RobotoSlab-Medium"; */
   font-size: 18px;
-  color: ${(props) => (props.selected ? "#666360" : "#ffffff")};
+  color: ${(props) => (props.selected ? "#ffffff" : "#ffffff")};
 `;

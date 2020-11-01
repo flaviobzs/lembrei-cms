@@ -12,6 +12,7 @@ import {Content} from "./styles";
 
 interface IFormInputs {
   email: string;
+  name: string;
   password: string;
 }
 
@@ -42,9 +43,7 @@ const SignUp: React.FC = () => {
      
       <Logo/>
       <Content>
-      <View>
-        <Text>Cadastro</Text>
-      </View>
+      <Text>Cadastro</Text>
       <Controller
         control={control}
         name="name"
@@ -73,6 +72,10 @@ const SignUp: React.FC = () => {
         defaultValue=""
         rules={{
           required: { value: true, message: "O email não pode ser vazio" },
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "O email é inválido",
+          },
         }}
         render={({ onChange, value, onBlur, name }) => (
           <InputField

@@ -1,10 +1,14 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { Container } from "./styles";
 
-const CreateProductButton: React.FC = ({ onPress }) => {
+interface CreateProductButtonProps{
+  onPress: Function;
+}
+
+const CreateProductButton: React.FC<CreateProductButtonProps> = ({ onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <Container>

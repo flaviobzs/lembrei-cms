@@ -34,7 +34,7 @@ const categories = [
   },
 ];
 
-const CreateProduct: React.FC = () => {
+const EditProduct: React.FC = () => {
   // const [category, setCategory] = useState();
 
   const { control, register, setValue, handleSubmit, errors } = useForm({});
@@ -124,12 +124,19 @@ const CreateProduct: React.FC = () => {
         render={({ onChange, value, onBlur, name }) => (
           <Select
             items={categories}
-            // icon="apps"
+            // icon="material-ui"
+            // onChangeText={(value: string) => {
+            //   onChange(value);
+            //   // setValue("password", value);
+            // }}
             onSelectItem={(item) => {
               onChange(item);
+              // console.log(item);
             }}
             selectedItem={value}
+            // name={name}
             numberOfColumns={1}
+            // PickerItemComponent={CategoryPickerItem}
             placeholder="Category"
           />
         )}
@@ -157,10 +164,10 @@ const CreateProduct: React.FC = () => {
         )}
       />
 
-      <Button onPress={handleSubmit(onSubmit)}>Cadastrar</Button>
+      <Button onPress={handleSubmit(onSubmit)}>Editar</Button>
       </Content>
     </Wrapper>
   );
 };
 
-export default CreateProduct;
+export default EditProduct;
