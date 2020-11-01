@@ -56,6 +56,7 @@ const SignIn: React.FC = () => {
                 // setValue("email", value);
               }}
               value={value}
+              icon="email"
               onBlur={onBlur}
               name={name}
               error={errors?.email}
@@ -81,6 +82,7 @@ const SignIn: React.FC = () => {
                 // setValue("password", value);
               }}
               value={value}
+              icon="key"
               onBlur={onBlur}
               name={name}
               error={errors?.password}

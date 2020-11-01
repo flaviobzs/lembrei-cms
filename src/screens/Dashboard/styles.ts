@@ -48,3 +48,38 @@ export const CategoryName = styled.Text<CategoryNameProps>`
   font-size: 18px;
   color: ${(props) => (props.selected ? "#ffffff" : "#ffffff")};
 `;
+
+
+export const ModalContainer = styled.View`
+  background-color: black;
+  flex: 1;
+`;
+
+export const Close = styled.View`
+  /* position: absolute;
+  top: 40px;
+  right: 30px; */
+  margin: 20px;
+`;
+
+export const CloseContainer = styled.TouchableOpacity``;
+
+export const ButtonsContainer = styled.View`
+  flex-direction: row;
+  /* flex: 1; */
+  align-items: center;
+  /* height: 80px; */
+  justify-content: flex-end;
+`;
+
+export const Delete = styled.View`
+  /* position: absolute;
+  top: 40px;
+  left: 30px; */
+  margin: 20px;
+`;
+
+export const Image = styled.Image`
+  width: 100%;
+  height: 100%;
+`;

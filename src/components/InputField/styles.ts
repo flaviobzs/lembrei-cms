@@ -7,9 +7,12 @@ interface ContainerProps {
 
 interface IconProps {
   isFilled: boolean;
+  isErrored: boolean;
 }
 
 export const Container = styled.View<ContainerProps>`
+  flex-direction: row;
+  align-items: center;
   border-radius: 15px;
   width: 100%;
   height: 55px;
@@ -35,11 +38,11 @@ export const TextInput = styled.TextInput`
 `;
 
 export const Icon = styled(MaterialCommunityIcons)<IconProps>`
-  /* margin-right: 16px;
+  margin-right: 5px;
   color: ${({ theme }) => theme.colors.grayHard};
 
-  ${(props) =>
-    (props.isFocused || props.isFilled) &&
+  /* ${(props) =>
+    (props.isErrored || props.isFilled) &&
     css`
       color: ${props.theme.colors.orange};
     `} */

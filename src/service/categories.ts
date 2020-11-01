@@ -1,18 +1,17 @@
 export default [
   {
     id: 1,
-    name: "todos",    
+    icon: "human-male",
+    label: "Masculino",
   },
   {
-    id: 2,
-    name: "feminino",  
+    id: 2, 
+    icon: "human-female",
+    label: "Feminino",
   },
   {
     id: 3,
-    name: "masculino",
-  },
-  {
-    id: 4,
-    name: "preço",  
+    icon: "human-child",
+    label: "Infantil",
   },
 ];

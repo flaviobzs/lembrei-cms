@@ -16,26 +16,9 @@ interface IFormInputs {
   description: string;
 }
 
-const categories = [
-  {
-    id: 1,
-    icon: "human-male",
-    label: "Masculino",
-  },
-  {
-    id: 2, 
-    icon: "human-female",
-    label: "Feminino",
-  },
-  {
-    id: 3,
-    icon: "human-child",
-    label: "Infantil",
-  },
-];
+import categories from '../../service/categories'
 
 const EditProduct: React.FC = () => {
-  // const [category, setCategory] = useState();
 
   const { control, register, setValue, handleSubmit, errors } = useForm({});
 
@@ -58,7 +41,7 @@ const EditProduct: React.FC = () => {
       <Controller
         control={control}
         name="image"
-        defaultValue={null}
+        defaultValue=" "
         rules={{}}
         render={({ onChange, value, onBlur, name }) => (
           <InputImage            
@@ -71,7 +54,7 @@ const EditProduct: React.FC = () => {
       <Controller
         control={control}
         name="name"
-        defaultValue=""
+        defaultValue=" "
         rules={{
           required: { value: true, message: "O nome não pode ser vazio" },
         }}
@@ -83,6 +66,7 @@ const EditProduct: React.FC = () => {
               setValue(name, value);
             }}
             value={value}
+            icon="account"
             onBlur={onBlur}
             name={name}
             error={errors?.email}
@@ -104,6 +88,7 @@ const EditProduct: React.FC = () => {
               setValue(name, value);
             }}
             value={value}
+            icon="currency-usd"
             onBlur={onBlur}
             name={name}
             error={errors?.email}
@@ -114,7 +99,7 @@ const EditProduct: React.FC = () => {
       <Controller
         control={control}
         name="category"
-        defaultValue=" "
+        defaultValue={null}
         rules={{
           required: {
             value: true,
@@ -124,20 +109,12 @@ const EditProduct: React.FC = () => {
         render={({ onChange, value, onBlur, name }) => (
           <Select
             items={categories}
-            // icon="material-ui"
-            // onChangeText={(value: string) => {
-            //   onChange(value);
-            //   // setValue("password", value);
-            // }}
             onSelectItem={(item) => {
               onChange(item);
-              // console.log(item);
             }}
             selectedItem={value}
-            // name={name}
             numberOfColumns={1}
-            // PickerItemComponent={CategoryPickerItem}
-            placeholder="Category"
+            placeholder="Selecione uma categoria"
           />
         )}
       />
@@ -157,6 +134,7 @@ const EditProduct: React.FC = () => {
               setValue(name, value);
             }}
             value={value}
+            icon="playlist-edit"
             onBlur={onBlur}
             name={name}
             error={errors?.email}

@@ -59,6 +59,7 @@ const SignUp: React.FC = () => {
               setValue("name", value);
             }}
             value={value}
+            icon="account"
             onBlur={onBlur}
             name={name}
             error={errors?.email}
@@ -85,6 +86,7 @@ const SignUp: React.FC = () => {
               setValue("email", value);
             }}
             value={value}
+            icon="email"
             onBlur={onBlur}
             name={name}
             error={errors?.email}
@@ -102,11 +104,13 @@ const SignUp: React.FC = () => {
         render={({ onChange, value, onBlur, name }) => (
           <InputField
             placeholder="Digite sua senha"
+            icon=""
             onChangeText={(value: any) => {
               onChange(value);
               setValue("password", value);
             }}
             value={value}
+            icon="key"
             onBlur={onBlur}
             name={name}
             error={errors?.email}

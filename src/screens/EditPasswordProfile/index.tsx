@@ -45,6 +45,7 @@ const EditPasswordProfile: React.FC = () => {
                 setValue("oldPassword", value);
               }}
               value={value}
+              icon="key"
               onBlur={onBlur}
               name={name}
               error={errors?.oldPassword}
@@ -67,6 +68,7 @@ const EditPasswordProfile: React.FC = () => {
                 setValue("newPassword", value);
               }}
               value={value}
+              icon="key"
               onBlur={onBlur}
               name={name}
               error={errors?.newPassword}

@@ -28,13 +28,19 @@ export const ImageContainer = styled.Image`
 
 export const DetailsContainer = styled.View`
   padding: 10px 20px;
+  width: 60%;
 `;
 
 export const TitleContainer = styled.Text`
   margin-bottom: 7px;
 `;
 
-export const SubTitleContainer = styled.Text`
+export const PriceContainer = styled.Text`
   color: #111;
   font-weight: bold;
+`;
+
+export const SubTitleContainer = styled.Text`
+  color: #111;
+  font-size: 10px;
 `;

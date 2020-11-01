@@ -57,15 +57,7 @@ const DetailsProduct: React.FC = () => {
               <Close>
                 <MaterialCommunityIcons name="close" color="white" size={35} />
               </Close>
-            </TouchableOpacity>
-
-            {/* <Delete>
-              <MaterialCommunityIcons
-                name="trash-can-outline"
-                color="white"
-                size={35}
-              />
-            </Delete> */}
+            </TouchableOpacity>            
           </ButtonsContainer>
           <Image
             resizeMode="contain"

@@ -13,26 +13,32 @@ import {
   DetailsContainer,
   ImageContainer,
   SubTitleContainer,
+  PriceContainer,
   TitleContainer,
 } from "./styles";
 
 interface CardProps {
   title: string;
   subTitle: string;
+  price: string;
   image?: any;
   onPress?: any;
+  onPressImage?: any;
   renderRightActions?: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, subTitle, image, onPress, renderRightActions }) => {
+const Card: React.FC<CardProps> = ({ title, subTitle, price, image, onPress, onPressImage, renderRightActions }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>    
       <Container>
         <ProductContainer>
-        <ImageContainer source={image}></ImageContainer>
+        <TouchableOpacity onPress={onPressImage}>
+          <ImageContainer source={image}></ImageContainer>
+        </TouchableOpacity>
         <DetailsContainer>
           <TitleContainer>{title}</TitleContainer>
-          <SubTitleContainer>{`R$ ${subTitle}`}</SubTitleContainer>
+          <PriceContainer>{`R$ ${price}`}</PriceContainer>
+          <SubTitleContainer numberOfLines={2}>{subTitle}</SubTitleContainer>
         </DetailsContainer>
         </ProductContainer>
         <TouchableOpacity onPress={onPress}>

@@ -52,6 +52,7 @@ const ForgotPassword: React.FC = () => {
               // setValue("email", value);
             }}
             value={value}
+            icon="email"
             onBlur={onBlur}
             name={name}
             error={errors?.email}

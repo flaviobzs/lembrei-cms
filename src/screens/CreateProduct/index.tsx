@@ -16,26 +16,9 @@ interface IFormInputs {
   description: string;
 }
 
-const categories = [
-  {
-    id: 1,
-    icon: "human-male",
-    label: "Masculino",
-  },
-  {
-    id: 2, 
-    icon: "human-female",
-    label: "Feminino",
-  },
-  {
-    id: 3,
-    icon: "human-child",
-    label: "Infantil",
-  },
-];
+import categories from '../../service/categories'
 
 const CreateProduct: React.FC = () => {
-  // const [category, setCategory] = useState();
 
   const { control, register, setValue, handleSubmit, errors } = useForm({});
 
@@ -63,7 +46,7 @@ const CreateProduct: React.FC = () => {
         render={({ onChange, value, onBlur, name }) => (
           <InputImage            
             imageUri={value}
-            onChangeImage={(value) => onChange(value)}
+            onChangeImage={(value: string) => onChange(value)}
           ></InputImage>
       )}
       />
@@ -82,6 +65,7 @@ const CreateProduct: React.FC = () => {
               onChange(value);
               setValue(name, value);
             }}
+            icon="account"
             value={value}
             onBlur={onBlur}
             name={name}
@@ -104,6 +88,7 @@ const CreateProduct: React.FC = () => {
               setValue(name, value);
             }}
             value={value}
+            icon="currency-usd"
             onBlur={onBlur}
             name={name}
             error={errors?.email}
@@ -114,7 +99,7 @@ const CreateProduct: React.FC = () => {
       <Controller
         control={control}
         name="category"
-        defaultValue=" "
+        defaultValue={null}
         rules={{
           required: {
             value: true,
@@ -124,13 +109,12 @@ const CreateProduct: React.FC = () => {
         render={({ onChange, value, onBlur, name }) => (
           <Select
             items={categories}
-            // icon="apps"
             onSelectItem={(item) => {
               onChange(item);
             }}
             selectedItem={value}
             numberOfColumns={1}
-            placeholder="Category"
+            placeholder="Selecione uma categoria"
           />
         )}
       />
@@ -150,6 +134,7 @@ const CreateProduct: React.FC = () => {
               setValue(name, value);
             }}
             value={value}
+            icon="playlist-edit"
             onBlur={onBlur}
             name={name}
             error={errors?.email}

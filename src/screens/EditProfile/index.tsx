@@ -50,6 +50,7 @@ const Profile: React.FC = () => {
               setValue("name", value);
             }}
             value={value}
+            icon="account"
             onBlur={onBlur}
             name={name}
             error={errors?.name}
@@ -76,6 +77,7 @@ const Profile: React.FC = () => {
               setValue("email", value);
             }}
             value={value}
+            icon="email"
             onBlur={onBlur}
             name={name}
             error={errors?.email}
